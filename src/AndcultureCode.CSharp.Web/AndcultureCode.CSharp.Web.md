@@ -53,6 +53,12 @@
 - [IServiceCollectionExtensions](#T-AndcultureCode-CSharp-Web-Extensions-IServiceCollectionExtensions 'AndcultureCode.CSharp.Web.Extensions.IServiceCollectionExtensions')
   - [AddCookieAuthentication(services,config)](#M-AndcultureCode-CSharp-Web-Extensions-IServiceCollectionExtensions-AddCookieAuthentication-Microsoft-Extensions-DependencyInjection-IServiceCollection,Microsoft-Extensions-Configuration-IConfigurationRoot- 'AndcultureCode.CSharp.Web.Extensions.IServiceCollectionExtensions.AddCookieAuthentication(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfigurationRoot)')
   - [AddForwardedHeaders(services)](#M-AndcultureCode-CSharp-Web-Extensions-IServiceCollectionExtensions-AddForwardedHeaders-Microsoft-Extensions-DependencyInjection-IServiceCollection- 'AndcultureCode.CSharp.Web.Extensions.IServiceCollectionExtensions.AddForwardedHeaders(Microsoft.Extensions.DependencyInjection.IServiceCollection)')
+- [ModelStateDictionaryExtensions](#T-AndcultureCode-CSharp-Web-Extensions-ModelStateDictionaryExtensions 'AndcultureCode.CSharp.Web.Extensions.ModelStateDictionaryExtensions')
+  - [ToResult\`\`1(modelState)](#M-AndcultureCode-CSharp-Web-Extensions-ModelStateDictionaryExtensions-ToResult``1-Microsoft-AspNetCore-Mvc-ModelBinding-ModelStateDictionary- 'AndcultureCode.CSharp.Web.Extensions.ModelStateDictionaryExtensions.ToResult``1(Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary)')
+- [NotAllowedFilter](#T-AndcultureCode-CSharp-Web-Filters-NotAllowedFilter 'AndcultureCode.CSharp.Web.Filters.NotAllowedFilter')
+  - [OnActionExecuting(context)](#M-AndcultureCode-CSharp-Web-Filters-NotAllowedFilter-OnActionExecuting-Microsoft-AspNetCore-Mvc-Filters-ActionExecutingContext- 'AndcultureCode.CSharp.Web.Filters.NotAllowedFilter.OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)')
+- [ValidationFilter](#T-AndcultureCode-CSharp-Web-Filters-ValidationFilter 'AndcultureCode.CSharp.Web.Filters.ValidationFilter')
+  - [OnActionExecuting(context)](#M-AndcultureCode-CSharp-Web-Filters-ValidationFilter-OnActionExecuting-Microsoft-AspNetCore-Mvc-Filters-ActionExecutingContext- 'AndcultureCode.CSharp.Web.Filters.ValidationFilter.OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)')
 - [WebConfiguration](#T-AndcultureCode-CSharp-Web-Constants-WebConfiguration 'AndcultureCode.CSharp.Web.Constants.WebConfiguration')
   - [AUTHENTICATION](#F-AndcultureCode-CSharp-Web-Constants-WebConfiguration-AUTHENTICATION 'AndcultureCode.CSharp.Web.Constants.WebConfiguration.AUTHENTICATION')
   - [AUTHENTICATION_BASIC](#F-AndcultureCode-CSharp-Web-Constants-WebConfiguration-AUTHENTICATION_BASIC 'AndcultureCode.CSharp.Web.Constants.WebConfiguration.AUTHENTICATION_BASIC')
@@ -939,6 +945,90 @@ Enables HTTP Header forwarding for proxies. This is not enabled by default when 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | services | [Microsoft.Extensions.DependencyInjection.IServiceCollection](#T-Microsoft-Extensions-DependencyInjection-IServiceCollection 'Microsoft.Extensions.DependencyInjection.IServiceCollection') |  |
+
+<a name='T-AndcultureCode-CSharp-Web-Extensions-ModelStateDictionaryExtensions'></a>
+## ModelStateDictionaryExtensions `type`
+
+##### Namespace
+
+AndcultureCode.CSharp.Web.Extensions
+
+##### Summary
+
+Utility functions for ModelStateDictionary
+
+<a name='M-AndcultureCode-CSharp-Web-Extensions-ModelStateDictionaryExtensions-ToResult``1-Microsoft-AspNetCore-Mvc-ModelBinding-ModelStateDictionary-'></a>
+### ToResult\`\`1(modelState) `method`
+
+##### Summary
+
+Converts validation errors to the shape of an IResult
+
+##### Returns
+
+
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| modelState | [Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary](#T-Microsoft-AspNetCore-Mvc-ModelBinding-ModelStateDictionary 'Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary') |  |
+
+##### Generic Types
+
+| Name | Description |
+| ---- | ----------- |
+| T |  |
+
+<a name='T-AndcultureCode-CSharp-Web-Filters-NotAllowedFilter'></a>
+## NotAllowedFilter `type`
+
+##### Namespace
+
+AndcultureCode.CSharp.Web.Filters
+
+##### Summary
+
+Filter for denying access to resource
+///
+
+<a name='M-AndcultureCode-CSharp-Web-Filters-NotAllowedFilter-OnActionExecuting-Microsoft-AspNetCore-Mvc-Filters-ActionExecutingContext-'></a>
+### OnActionExecuting(context) `method`
+
+##### Summary
+
+Attribute that returns a 401 result
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| context | [Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext](#T-Microsoft-AspNetCore-Mvc-Filters-ActionExecutingContext 'Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext') |  |
+
+<a name='T-AndcultureCode-CSharp-Web-Filters-ValidationFilter'></a>
+## ValidationFilter `type`
+
+##### Namespace
+
+AndcultureCode.CSharp.Web.Filters
+
+##### Summary
+
+Filter for validating ModelState
+
+<a name='M-AndcultureCode-CSharp-Web-Filters-ValidationFilter-OnActionExecuting-Microsoft-AspNetCore-Mvc-Filters-ActionExecutingContext-'></a>
+### OnActionExecuting(context) `method`
+
+##### Summary
+
+Validates ModelState
+Returns 400 Response with errors if invalid
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| context | [Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext](#T-Microsoft-AspNetCore-Mvc-Filters-ActionExecutingContext 'Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext') |  |
 
 <a name='T-AndcultureCode-CSharp-Web-Constants-WebConfiguration'></a>
 ## WebConfiguration `type`
